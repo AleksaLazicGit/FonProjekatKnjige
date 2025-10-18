@@ -1,3 +1,70 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Books</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"
+      >This is the menu content.
+      <ion-list>
+        <ion-item>
+          <ion-icon name="person-circle" slot="start"></ion-icon>
+          <ion-label>My profile</ion-label>
+        </ion-item>
+        <ion-menu-toggle>
+          <ion-item routerLink="/books">
+            <ion-icon name="document-text" slot="start"></ion-icon>
+            <ion-label>Books </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/fun-facts">
+            <ion-icon name="happy" slot="start"></ion-icon>
+            <ion-label>Fun facts </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-item>
+          <ion-icon name="log-out" slot="start"></ion-icon>
+          <ion-label>Log out </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      Tap the button in the toolbar to open the menu.
+    </ion-content>
+  </div> -->
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="books">
+        <ion-icon name="library"></ion-icon>
+        <ion-label>Book</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="fun-facts">
+        <ion-icon name="happy"></ion-icon>
+        <ion-label>Fun facts</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-icon name="play-circle"></ion-icon>
+        Library
+      </ion-tab-button>
+      <ion-tab-button tab="search">
+        <ion-icon name="search"></ion-icon>
+        Search
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-app>

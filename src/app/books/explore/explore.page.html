@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Search Books</ion-title>
+    <ion-buttons slot="end">
+      <ion-fab-button size="small" (click)="openModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-text slot="start">Title</ion-text>
+  <ion-text slot="end">Author</ion-text> -->
+  <ion-list>
+    @for (book of books; track book.id){
+    <!-- <app-book-element [book]="book" [routerLink]="book.id"> </app-book-element> -->
+    <app-book-element [book]="book"></app-book-element>
+    } @empty {
+    <li>There are no books in the library.</li>
+    }
+  </ion-list>
+
+  <ion-buttons class="ion-justify-content-center">
+    <ion-button routerLink="/fun-facts" color="tertiary" fill="solid">
+      Fun-facts
+    </ion-button>
+    <ion-button (click)="openMenu()" color="tertiary" fill="solid">
+      Open Menu
+    </ion-button>
+  </ion-buttons>
+</ion-content>

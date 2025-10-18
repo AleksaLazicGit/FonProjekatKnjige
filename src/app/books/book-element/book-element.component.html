@@ -1,0 +1,21 @@
+<!-- <p>
+  book-element works!
+</p> -->
+
+<ion-item>
+  <ion-avatar slot="start">
+    <ion-img
+      [src]="book.imageUrl"
+      [routerLink]="['/', 'books', 'tabs', 'explore', book.id]"
+    ></ion-img>
+  </ion-avatar>
+  <ion-label [routerLink]="['/', 'books', 'tabs', 'explore', book.id]">{{
+    book.title
+  }}</ion-label>
+  <ion-text
+    ><p [routerLink]="['/', 'books', 'tabs', 'explore', book.id]">
+      {{ book.author }}
+    </p></ion-text
+  >
+  <ion-icon name="book-outline" slot="end" (click)="openAlert()"></ion-icon>
+</ion-item>

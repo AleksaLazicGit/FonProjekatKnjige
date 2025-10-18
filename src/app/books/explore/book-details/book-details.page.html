@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/books/tabs/explore"></ion-back-button>
+    </ion-buttons>
+    <ion-title>book-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+    <img [src]="book.imageUrl" />
+    <ion-card-header>
+      <ion-card-title>{{book.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{book.author}} </ion-card-content>
+    <ion-card-content> {{book.genre}} </ion-card-content>
+  </ion-card>
+</ion-content>

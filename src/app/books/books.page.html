@@ -1,0 +1,46 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>books</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content [fullscreen]="true"> -->
+<!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">books</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+<!-- <ion-buttons class="ion-justify-content-center">
+    <ion-button routerLink="/fun-facts" color="tertiary" fill="solid">
+      Fun-facts
+    </ion-button>
+    <ion-button (click)="openMenu()" color="tertiary" fill="solid">
+      Open Menu
+    </ion-button>
+  </ion-buttons>
+</ion-content> -->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="books">
+      <ion-icon name="library"></ion-icon>
+      <ion-label>Explore</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="fun-facts">
+      <ion-icon name="happy"></ion-icon>
+      <ion-label>Saved</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="explore">
+      <ion-icon name="play-circle"></ion-icon>
+      Library
+    </ion-tab-button>
+    <ion-tab-button tab="saved">
+      <ion-icon name="search"></ion-icon>
+      Search
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
