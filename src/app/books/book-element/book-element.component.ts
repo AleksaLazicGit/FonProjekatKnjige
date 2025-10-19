@@ -14,6 +14,7 @@ export class BookElementComponent implements OnInit {
     author: 'Jane Austen',
     title: 'Pride and Prejudice',
     genre: 'romance',
+    userId: 'xxx',
     imageUrl:
       'https://play-lh.googleusercontent.com/RQF-CqRfonKGB6tI0nH7B_fc83AFbyiyUIuLaJNm46u2JDGKo3wdyAkBsnPZEI7dkHzEJAri5fth=s256-rw',
   };

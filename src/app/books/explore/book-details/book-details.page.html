@@ -3,12 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/books/tabs/explore"></ion-back-button>
     </ion-buttons>
-    <ion-title>book-details</ion-title>
+    <ion-title>Book details</ion-title>
+    <ion-buttons slot="end">
+      <ion-fab-button size="small" color="tertiary" (click)="onEditBook()">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small" color="tertiary" (click)="onDeleteBook()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="ion-padding">
+  @if (isLoading){
+  <div class="ion-text-center">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  } @else {
+  <ion-card>
     <img [src]="book.imageUrl" />
     <ion-card-header>
       <ion-card-title>{{book.title}}</ion-card-title>
@@ -16,4 +29,7 @@
     <ion-card-content> {{book.author}} </ion-card-content>
     <ion-card-content> {{book.genre}} </ion-card-content>
   </ion-card>
+  <!-- <ion-button class="ion-margin">SAVE</ion-button> -->
+
+  }
 </ion-content>

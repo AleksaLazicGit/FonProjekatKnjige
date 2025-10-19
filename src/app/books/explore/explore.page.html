@@ -18,18 +18,21 @@
   <ion-list>
     @for (book of books; track book.id){
     <!-- <app-book-element [book]="book" [routerLink]="book.id"> </app-book-element> -->
-    <app-book-element [book]="book"></app-book-element>
+    <app-book-element
+      [book]="book"
+      [routerLink]="['/','books', 'tabs', 'explore', book.id]"
+    ></app-book-element>
     } @empty {
     <li>There are no books in the library.</li>
     }
   </ion-list>
 
-  <ion-buttons class="ion-justify-content-center">
+  <!-- <ion-buttons class="ion-justify-content-center">
     <ion-button routerLink="/fun-facts" color="tertiary" fill="solid">
       Fun-facts
     </ion-button>
     <ion-button (click)="openMenu()" color="tertiary" fill="solid">
       Open Menu
     </ion-button>
-  </ion-buttons>
+  </ion-buttons> -->
 </ion-content>

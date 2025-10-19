@@ -11,6 +11,7 @@ import { ModalController } from '@ionic/angular';
 export class BookModalComponent implements OnInit {
   @ViewChild('f', { static: true }) form!: NgForm;
   @Input() title!: string;
+  @Input() mode!: string;
   constructor(private modalCtrl: ModalController) {}
 
   ngOnInit() {}

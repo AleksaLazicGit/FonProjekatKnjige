@@ -43,6 +43,12 @@
 
       <ion-row class="ion-justify-content-center">
         <ion-col size-sm="6">
+          <div class="ion-text-center">
+            @if (isLoading) {
+            <ion-spinner></ion-spinner>
+            }
+          </div>
+          @if (!isLoading){
           <ion-button
             type="submit"
             expand="block"
@@ -52,6 +58,7 @@
             [disabled]="logInForm.invalid"
             >Log In</ion-button
           >
+          }
         </ion-col>
       </ion-row>
     </ion-grid>
