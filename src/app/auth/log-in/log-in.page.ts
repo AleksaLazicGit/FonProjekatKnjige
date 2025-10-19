@@ -41,10 +41,13 @@ export class LogInPage implements OnInit {
           });
           await alert.present();
           logInForm.reset();
+          this.isLoading = false;
         },
       });
     } else {
       console.error('Forma nije validna');
     }
+    // this.isLoading = false;
+    logInForm.reset();
   }
 }

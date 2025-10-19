@@ -18,7 +18,7 @@ export class RegisterPage implements OnInit {
     private router: Router
   ) {
     this.registerForm = new FormGroup({
-      name: new FormControl('Aleksa', Validators.required),
+      name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [
@@ -31,16 +31,28 @@ export class RegisterPage implements OnInit {
   ngOnInit() {}
 
   onRegister() {
+    if (this.registerForm.invalid) {
+      console.log(this.registerForm);
+      alert('Registracija nije validna!');
+      return;
+    }
     this.loadingCtrl.create({ message: 'Registering...' }).then((loadingEl) => {
       loadingEl.present();
       this.authService
         .register(this.registerForm.value)
         .subscribe((resData) => {
-          console.log('Registracija uspela');
-          console.log(resData);
-          loadingEl.dismiss();
-          this.router.navigateByUrl('/books');
+          next: {
+            console.log('Registracija uspela');
+            console.log(resData);
+            loadingEl.dismiss();
+            this.router.navigateByUrl('/books');
+          }
+          // error: {
+          //   loadingEl.dismiss();
+          //   alert('Registracija nije uspela');
+          // }
         });
+      loadingEl.dismiss();
     });
   }
 }
