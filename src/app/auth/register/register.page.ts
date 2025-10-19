@@ -26,5 +26,9 @@ export class RegisterPage implements OnInit {
 
   onRegister() {
     console.log(this.registerForm);
+    this.authService.register(this.registerForm.value).subscribe((resData) => {
+      console.log('Registracija uspela');
+      console.log(resData);
+    });
   }
 }

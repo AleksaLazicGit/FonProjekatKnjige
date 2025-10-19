@@ -26,7 +26,7 @@ export class BookDetailsPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap) => {
-      this.book = this.booksService.getBook(paramMap.get('bookId')!)!;
+      // this.book = this.booksService.getBook(paramMap.get('bookId')!)!;
     });
   }
 }
