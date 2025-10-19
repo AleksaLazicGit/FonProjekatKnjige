@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-log-in',
@@ -10,13 +11,37 @@ import { NgForm } from '@angular/forms';
   standalone: false,
 })
 export class LogInPage implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private alertCtrl: AlertController
+  ) {}
 
   ngOnInit() {}
 
-  onLogin(logInForm: NgForm) {
-    this.authService.logIn();
-    this.router.navigateByUrl('/books/tabs/explore');
+  async onLogin(logInForm: NgForm) {
     console.log(logInForm);
+    if (logInForm.valid) {
+      this.authService.logIn(logInForm.value).subscribe({
+        next: (resdata) => {
+          console.log('prijava uspesna');
+          console.log('resData');
+          this.router.navigateByUrl('/books/tabs/explore');
+        },
+        error: async (errRes) => {
+          let message = 'Neispravni email ili password';
+          console.log(errRes);
+          const alert = await this.alertCtrl.create({
+            header: 'Prijava neuspesna',
+            message,
+            buttons: ['OK'],
+          });
+          await alert.present();
+          logInForm.reset();
+        },
+      });
+    } else {
+      console.error('Forma nije validna');
+    }
   }
 }

@@ -39,8 +39,13 @@ export class AuthService {
     );
   }
 
-  logIn() {
+  logIn(user: UserData) {
     this._isUserAuthenticated = true;
+
+    return this.http.post<AuthResponseData>(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
+      { email: user.email, password: user.password, returnSecureToken: true }
+    );
   }
 
   logout() {
